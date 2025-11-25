@@ -10,53 +10,55 @@ function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsOpen(false); // sidebar band kar dega
+    setIsOpen(false);
   };
 
-const links = [
-  { name: "Home", id: "home" },
-  { name: "Categories", id: "categories" },        // ← ye tha pehle nahi
-  { name: "Portfolio", id: "portfolio" },
-  { name: "About Us", id: "about-us" },
-  { name: "Testimonials", id: "testimonials" },
-  { name: "Contact", id: "contact-us" }           // ← ab Footer pe jayega
-];
+  const links = [
+    { name: "Home", id: "home" },
+    { name: "Portfolio", id: "portfolio" },
+    { name: "About Us", id: "about-us" },
+    { name: "Testimonials", id: "testimonials" },
+  ];
+
   return (
     <>
-      {/* Hamburger */}
-      {!isOpen && (
-        <div className="hamburger" onClick={toggle}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      )}
-
-      {/* Sidebar */}
-      <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-        <div className="sidebar-header">
-          <h2>Interiors by Krupa</h2>
-          <button className="close-btn" onClick={toggle}>✕</button>
-        </div>
-        <ul className="sidebar-menu">
-          {links.map((link) => (
-            <li key={link.id}>
-              <button 
-                className="sidebar-link-btn"
-                onClick={() => scrollToSection(link.id)}
-              >
-                {link.name}
-              </button>
-            </li>
-          ))}
-        </ul>
-        <div className="sidebar-footer">
-          <p>✉ hello@interiorsbykrupa.com</p>
-          <p>☎ +91 98765 43210</p>
-        </div>
+      {/* Hamburger – Gold & Clean */}
+      <div className="hamburger-light" onClick={toggle}>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
-      {isOpen && <div className="overlay" onClick={toggle}></div>}
+      {/* Sidebar – Light Luxury Theme */}
+      <div className={`sidebar-light ${isOpen ? 'open' : ''}`}>
+        <div className="sidebar-header-light">
+          {/* Logo Instead of Text */}
+          <img 
+            src="interiors-by-krupa/public/images/interiors-by-krupa.jpeg" 
+            alt="Interiors by Krupa" 
+            className="sidebar-logo"
+          />
+          <button className="close-btn-light" onClick={toggle}>
+            ×
+          </button>
+        </div>
+
+        {/* Clean Menu – No Bullets */}
+        <nav className="sidebar-menu-light">
+          {links.map((link) => (
+            <button
+              key={link.id}
+              className="sidebar-link-light"
+              onClick={() => scrollToSection(link.id)}
+            >
+              {link.name}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      {/* Overlay */}
+      {isOpen && <div className="overlay-light" onClick={toggle}></div>}
     </>
   );
 }
