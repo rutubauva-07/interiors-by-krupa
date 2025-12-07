@@ -33,7 +33,7 @@ function About() {
           <div className="text-col">
             <div className="text-content">
               <p className="about-text">
-                Every space tells a story — of the people who live, work, and dream within it. 
+                Every space tells a story of the people who live, work and dream within it. 
                 Interiors by Krupa was founded on this belief with a vision to bring spaces to life through design that is timeless, elegant and deeply personal.
               </p>
 
@@ -42,7 +42,7 @@ function About() {
               </p>
 
               <p className="about-text">
-                At Interiors by Krupa, every project is a journey we take together — from the first idea to the final handover. 
+                At Interiors by Krupa, every project is a journey we take together from the first idea to the final handover. 
                 We stand by our clients through each step, ensuring that every corner reflects their personality, purpose and sense of harmony.
               </p>
             </div>

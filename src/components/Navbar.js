@@ -3,14 +3,16 @@ import React, { useState } from 'react';
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => {
+    setIsOpen(prev => !prev);   // ← Ye toggle karega
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsOpen(false);
+    setIsOpen(false);  // ← Sidebar band bhi ho jayega
   };
 
   const links = [
@@ -18,23 +20,29 @@ function Navbar() {
     { name: "Portfolio", id: "portfolio" },
     { name: "About Us", id: "about-us" },
     { name: "Testimonials", id: "testimonials" },
+    { name: "Contact Us", id: "contact-us" },
   ];
 
   return (
     <>
-      {/* Hamburger – Gold & Clean */}
-      <div className="hamburger-light" onClick={toggle}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      {/* HAMBURGER — SIRF JAB SIDEBAR BAND HO TAB DIKHE */}
+      {!isOpen && (
+        <div 
+          className="hamburger-light" 
+          onClick={toggle}
+          style={{ pointerEvents: isOpen ? 'none' : 'auto' }}  // Extra safety
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      )}
 
-      {/* Sidebar – Light Luxury Theme */}
+      {/* SIDEBAR */}
       <div className={`sidebar-light ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header-light">
-          {/* Logo Instead of Text */}
           <img 
-            src="interiors-by-krupa/public/images/interiors-by-krupa.jpeg" 
+            src="/images/interiors-by-krupa-removebg.png" 
             alt="Interiors by Krupa" 
             className="sidebar-logo"
           />
@@ -43,7 +51,6 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Clean Menu – No Bullets */}
         <nav className="sidebar-menu-light">
           {links.map((link) => (
             <button
@@ -57,8 +64,13 @@ function Navbar() {
         </nav>
       </div>
 
-      {/* Overlay */}
-      {isOpen && <div className="overlay-light" onClick={toggle}></div>}
+      {/* OVERLAY — Click kare toh band ho jaye */}
+      {isOpen && (
+        <div 
+          className="overlay-light" 
+          onClick={toggle}
+        />
+      )}
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const testimonials = [
-  { name: "Mr. & Mrs. Gupta", text: "Krupa turned our boring flat into a 5-star home!", place: "Bandra" },
+  { name: "Mr. & Mrs. Gupta", text: " Krupa turned our boring flat into a 5-star home!Krupa turned our boring flat into a 5-star home!Krupa turned our boring flat into a 5-star home!Krupa turned our boring flat into a 5-star home!Krupa turned our boring flat into a 5-star home!", place: "Bandra" },
   { name: "Rohan Malhotra", text: "Best decision for our office makeover. Clients love it!", place: "BKC" },
   { name: "Priya Singh", text: "On time, on budget, beyond dreams!", place: "Juhu" },
   { name: "Ananya & Vikram", text: "Our home finally feels like 'us'. Thank you Krupa!", place: "Malabar Hill" },
@@ -25,7 +25,7 @@ function Testimonials() {
   return (
     <section id="testimonials" className="testimonials-light">
       <div className="container">
-        <h2 className="section-title">WHAT CLIENTS SAY</h2>
+        <h2 className="section-title">TESTIMONIALS</h2>
 
         <div className="carousel-container">
           {/* Cards */}

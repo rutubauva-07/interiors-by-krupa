@@ -6,11 +6,11 @@
 .hero-minimal {
   position: relative;
   min-height: 100vh;
-  background-color: #d8d5d0;
+  background-color: #f8f9fa;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding: 0 10px;
   overflow: hidden;
 }
 .logo-container { text-align: center; width: 100%; max-width: 1400px; }
@@ -20,6 +20,18 @@
   height: auto;
   max-height: 95vh;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.18));
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillIn {
+  to {
+    fill: #1a1a1a;
+  }
 }
 
 /* ────────────────────────────────
@@ -107,7 +119,7 @@
    ──────────────────────────────── */
 .testimonials-light {
   padding: 130px 0;
-  background-color: #d8d5d0;
+  background-color: #ffffff;
   overflow: hidden;
 }
 
@@ -115,7 +127,7 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  height: 460px;
+  height: 840px;
   overflow: hidden;
 }
 
@@ -174,8 +186,8 @@
 }
 
 .testi-card-new.center .card-inner {
-  border-color: #d4af37;
-  box-shadow: 0 50px 110px rgba(212,175,55,0.28);
+  border-color: #000000;
+  /* box-shadow: 0 50px 110px rgba(212,175,55,0.28); */
   transform: translateY(-12px);
 }
 
@@ -265,14 +277,15 @@
   .carousel-container { height: 420px; }
 }
 /* ────────────────────────────────
-   COMPACT LUXURY FOOTER (Only Logo Version)
+   FOOTER – FINAL COMPACT & LUXURY (Tight Spacing)
    ──────────────────────────────── */
 .footer-light {
-  background: #ffffff;
+  background: rgba(248, 249, 250);
   padding: 70px 20px 50px;   /* Height drastically reduced */
   border-top: 1px solid rgba(212,175,55,0.12);
   color: #333;
 }
+
 
 .footer-container {
   max-width: 1000px;
@@ -281,28 +294,78 @@
 }
 
 .footer-logo-only {
-  margin-bottom: 32px;   /* Logo se address tak gap kam */
+  margin-bottom: 24px;
 }
 
 .footer-logo-main {
-  width: 105px;
-  height: 105px;
-  filter: drop-shadow(0 10px 20px rgba(212,175,55,0.2));
+  width: 260px;
+  height: auto;
+  max-height: 110px;
+  filter: drop-shadow(0 10px 20px rgba(212,175,55,0.15));
 }
 
-.footer-address {
-  margin: 0 auto 38px;
-  color: #444;
-  font-size: 1.08rem;
-  line-height: 1.8;         /* Line spacing tight kiya */
-  max-width: 460px;
+/* Main Info Block – Super Tight Spacing */
+.footer-info-block {
+  margin: 28px auto 42px;
+  max-width: 520px;
 }
 
+.footer-studio-name {
+  margin: 0 0 16px 0;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.footer-contact-info {
+  margin: 18px 0 20px;
+}
+
+.footer-contact-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 9px 0;
+  font-size: 1.06rem;
+  color: #000000;
+}
+
+.footer-contact-line svg {
+  width: 18px;
+  height: 18px;
+  stroke: #d4af37;
+  flex-shrink: 0;
+}
+
+.footer-contact-text {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-text:hover {
+  color: #d4af37;
+}
+
+.footer-address-lines {
+  margin-top: 14px;
+  line-height: 1.7;
+  font-size: 1.06rem;
+  color: #000000;
+}
+
+.footer-address-lines p {
+  margin: 4px 0;
+}
+
+/* Social Icons */
 .footer-social {
   display: flex;
   justify-content: center;
-  gap: 38px;
-  margin-bottom: 38px;
+  gap: 40px;
+  margin-bottom: 48px;
 }
 
 .footer-social a {
@@ -311,8 +374,8 @@
 }
 
 .footer-social a:hover {
-  color: #1a1a1a;
-  transform: translateY(-5px) scale(1.18);
+  color: #000000;
+  transform: translateY(-6px) scale(1.2);
 }
 
 .footer-social svg {
@@ -321,27 +384,30 @@
   stroke-width: 2.2;
 }
 
+/* Copyright */
 .footer-copyright {
-  color: #777;
-  font-size: 0.92rem;
-  letter-spacing: 0.5px;
+  color: #666;
+  font-size: 0.94rem;
+  letter-spacing: 0.6px;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .footer-light { padding: 55px 20px 40px; }
-  .footer-logo-main { width: 88px; height: 88px; }
-  .footer-address { font-size: 1rem; line-height: 1.75; padding: 0 10px; }
-  .footer-social { gap: 32px; }
-}
-/* ────────────────────────────────
-   HIDE OLD DARK FOOTER & UNUSED CLASSES
-   ──────────────────────────────── */
-.footer, .insta-btn, .horizontal-scroll, .scroll-item, .about-img,
-.testi-scroll, .testi-card, .quote, .name, .arrow {
-  display: none !important;
+ .footer-light {
+  background: rgba(248, 249, 250);
+  padding: 60px 20px 50px;   /* Height drastically reduced */
+  border-top: 1px solid rgba(212,175,55,0.12);
+  color: #333;
 }
 
+  .footer-logo-main { width: 200px; }
+  .footer-info-block { margin: 20px auto 35px; }
+  .footer-studio-name { font-size: 1.15rem; }
+  .footer-contact-line { font-size: 1rem; gap: 8px; }
+  .footer-contact-line svg { width: 16px; height: 16px; }
+  .footer-address-lines { font-size: 1rem; line-height: 1.6; }
+  .footer-social { gap: 32px; }
+}
 /* ────────────────────────────────
    HAMBURGER & SIDEBAR
    ──────────────────────────────── */
@@ -418,156 +484,135 @@
   .footer-address { font-size: 1.08rem; padding: 0 15px; }
 }
 /* ────────────────────────────────
-   PORTFOLIO – MINIMAL WHITE SLIDER (ARROWS OUTSIDE)
+   PORTFOLIO – TRUE SWIPE SLIDER (LUXURY)
    ──────────────────────────────── */
 .portfolio-section {
   padding: 140px 0 160px;
-  background: #ffffff;           /* Pure white */
+  background: #ffffff;
+  overflow: hidden;
 }
 
-.portfolio-slider-wrapper {
+.portfolio-swiper-wrapper {
   position: relative;
   max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.portfolio-slider {
-  width: 100%;
-  max-width: 900px;
-  height: 620px;
-  overflow: hidden;
-  border-radius: 18px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.18);
-}
-
-.slider-image {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transform: scale(1.08);
-  transition: all 1.6s cubic-bezier(0.25, 0.8, 0.25, 1);
   user-select: none;
 }
 
-.slider-image.active {
-  opacity: 1;
-  transform: scale(1);
+.portfolio-swiper {
+  width: 100%;
+  max-width: 900px;
+  height: 620px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.22);
+  cursor: grab;
 }
 
-/* Arrows – Outside, Minimal < > Only */
-.portfolio-arrow {
+.portfolio-swiper:active {
+  cursor: grabbing;
+}
+
+.swiper-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Swipe Arrows – Clean & Outside */
+.swipe-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
   border: none;
   color: #1a1a1a;
-  font-size: 4.5rem;
-  font-weight: 300;
-  font-family: 'Georgia', serif;
   cursor: pointer;
   z-index: 10;
   padding: 0;
-  width: 60px;
-  height: 100px;
-  display: grid;
-  place-items: center;
   transition: all 0.4s ease;
-  user-select: none;
 }
 
-.portfolio-arrow:hover {
+.swipe-arrow:hover {
   color: #d4af37;
-  transform: translateY(-50%) scale(1.15);
+  transform: translateY(-50%) scale(1.2);
 }
 
-.portfolio-arrow.left {
+.swipe-arrow.left {
   left: -90px;
 }
 
-.portfolio-arrow.right {
+.swipe-arrow.right {
   right: -90px;
 }
 
+.swipe-arrow svg {
+  width: 56px;
+  height: 56px;
+  stroke-width: 2;
+  stroke: currentColor;
+}
+
 /* Dots */
-.portfolio-dots {
+.swipe-dots {
   position: absolute;
   bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 12px;
+  gap: 14px;
 }
 
-.portfolio-dots .dot {
-  width: 10px;
-  height: 10px;
+.swipe-dots .dot {
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  background: #ccc;
+  background: rgba(0,0,0,0.3);
   cursor: pointer;
-  transition: all 0.4s;
+  transition: all 0.4s ease;
 }
 
-.portfolio-dots .dot.active {
+.swipe-dots .dot.active {
   background: #d4af37;
-  transform: scale(1.4);
+  transform: scale(1.6);
+  box-shadow: 0 0 16px rgba(212,175,55,0.6);
 }
 
-/* Mobile Responsive */
+/* Mobile */
 @media (max-width: 1200px) {
-  .portfolio-arrow.left  { left: -60px; }
-  .portfolio-arrow.right { right: -60px; }
-  .portfolio-arrow { font-size: 4rem; }
+  .swipe-arrow.left { left: -70px; }
+  .swipe-arrow.right { right: -70px; }
 }
 
 @media (max-width: 992px) {
-  .portfolio-slider { height: 520px; max-width: 800px; }
-  .portfolio-arrow.left  { left: 10px; }
-  .portfolio-arrow.right { right: 10px; }
-  .portfolio-arrow { font-size: 3.5rem; }
+  .portfolio-swiper { height: 520px; max-width: 800px; }
+  .swipe-arrow { display: none; }
 }
 
 @media (max-width: 768px) {
   .portfolio-section { padding: 100px 0; }
-  .portfolio-slider { 
-    height: 420px; 
-    max-width: 95%;
-    border-radius: 14px;
-  }
-  .portfolio-arrow { display: none; } /* Hide arrows on mobile */
-  .portfolio-dots { bottom: -40px; }
-}
-
-.portfolio-arrow svg {
-  width: 52px;
-  height: 52px;
-  stroke: currentColor;
-  transition: all 0.7s ease;
-}
-
-.portfolio-arrow:hover svg {
-  stroke: #d4af37;
-  transform: scale(1.25);
-}
-
-/* Mobile pe arrows hide (optional – clean look ke liye) */
-@media (max-width: 992px) {
-  .portfolio-arrow {
-    display: none;
-  }
+  .portfolio-swiper { height: 420px; border-radius: 16px; }
+  .swipe-dots { bottom: -40px; }
 }
 
 /* ────────────────────────────────
-   NAVBAR – LIGHT LUXURY THEME (LOGO + MINIMAL)
+   SIDEBAR – FINAL CLEAN & LUXURY VERSION
    ──────────────────────────────── */
 
-/* Hamburger – Light Version */
+/* Hamburger – Light & Premium */
 .hamburger-light {
   position: fixed;
   top: 24px;
@@ -575,18 +620,18 @@
   z-index: 1001;
   cursor: pointer;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
   border-radius: 12px;
   border: 1.5px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
   transition: all 0.4s ease;
 }
 
 .hamburger-light:hover {
   background: #d4af37;
   border-color: #d4af37;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .hamburger-light span {
@@ -595,57 +640,57 @@
   height: 2.5px;
   background: #1a1a1a;
   margin: 5px 0;
-  border-radius: 2px;
-  transition: all 0.4s ease;
+  border-radius: 3px;
+  transition: background 0.4s ease;
 }
 
 .hamburger-light:hover span {
   background: white;
 }
 
-/* Sidebar – Light Theme */
+/* Sidebar – Light Luxury */
 .sidebar-light {
   position: fixed;
   top: 0;
   left: -380px;
   width: 380px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   color: #1a1a1a;
   z-index: 1000;
   transition: left 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   padding: 40px 30px;
-  box-shadow: 10px 0 40px rgba(0,0,0,0.12);
-  border-right: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 12px 0 50px rgba(0,0,0,0.15);
+  border-right: 1px solid rgba(212, 175, 55, 0.18);
 }
 
 .sidebar-light.open {
   left: 0;
 }
 
+/* Header with Logo + Close */
 .sidebar-header-light {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 60px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  margin-bottom: 50px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .sidebar-logo {
-  width: 135px;
+  width: 180px;
   height: auto;
-  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.25));
+  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.3));
 }
 
 .close-btn-light {
   background: none;
   border: none;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   color: #999;
   cursor: pointer;
-  padding: 0;
   width: 50px;
   height: 50px;
   display: grid;
@@ -658,11 +703,12 @@
   transform: rotate(90deg);
 }
 
-/* Menu – Super Clean */
+/* Menu – Super Tight & Clean */
 .sidebar-menu-light {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 12px;           /* ← Buttons ab bilkul close */
+  margin-top: 10px;
 }
 
 .sidebar-link-light {
@@ -672,53 +718,55 @@
   font-weight: 500;
   color: #333;
   text-align: left;
-  padding: 12px 0;
+  padding: 8px 0;
   cursor: pointer;
   font-family: 'Playfair Display', serif;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
   position: relative;
   transition: all 0.4s ease;
-  text-transform: uppercase;
 }
 
 .sidebar-link-light:hover {
   color: #d4af37;
-  padding-left: 12px;
+  padding-left: 14px;
 }
 
 .sidebar-link-light::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 8px;
+  bottom: 6px;
   width: 0;
-  height: 1.5px;
+  height: 1.8px;
   background: #d4af37;
   transition: width 0.5s ease;
 }
 
 .sidebar-link-light:hover::after {
-  width: 60px;
+  width: 70px;
 }
 
 /* Overlay */
 .overlay-light {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
   z-index: 999;
   cursor: pointer;
 }
 
-/* Hide Old Dark Sidebar */
-.sidebar, .hamburger {
+/* Hide Old Dark Stuff */
+.sidebar,
+.hamburger {
   display: none !important;
 }
 
-/* Mobile Adjustments */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .hamburger-light {
     top: 18px;
@@ -735,9 +783,16 @@
     padding: 30px 20px;
   }
   .sidebar-logo {
-    width: 110px;
+    width: 115px;
+  }
+  .sidebar-menu-light {
+    gap: 10px;
   }
   .sidebar-link-light {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+    padding: 7px 0;
+  }
+  .sidebar-link-light:hover::after {
+    width: 55px;
   }
 }

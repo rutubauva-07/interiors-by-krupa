@@ -8,40 +8,36 @@ const Home = () => {
     if (!svg) return;
 
     const paths = svg.querySelectorAll("path");
-    paths.forEach(p => {
+    paths.forEach((p) => {
       const len = p.getTotalLength();
       p.style.strokeDasharray = len;
       p.style.strokeDashoffset = len;
       p.style.stroke = "#1a1a1a";
-      p.style.strokeWidth = "0.5";
+      p.style.strokeWidth = "0.6";
       p.style.fill = "none";
     });
 
-    void svg.offsetWidth;
+    void svg.offsetWidth; // reflow
 
     requestAnimationFrame(() => {
-      const interiors = [];
-      const krupa = [];
+      const interiorsPaths = svg.querySelectorAll("#interiors-by path");
+      const krupaPaths = svg.querySelectorAll("#krupa path");
 
-      paths.forEach(p => {
-        p.closest("#interiors-by") ? interiors.push(p) : krupa.push(p);
+      // INTERIORS BY + KRUPA dono ek saath shuru, saath khatam
+      interiorsPaths.forEach((path, i) => {
+        const delay = i * 0.07;
+        path.style.animation = `
+          draw 3.9s cubic-bezier(0.7, 0, 0.3, 1) ${delay}s forwards,
+          fillIn 0.7s ease ${3.9 + delay + 0.3}s forwards
+        `;
       });
 
-      interiors.forEach((p, i) => {
-        setTimeout(() => {
-          p.style.transition = "stroke-dashoffset 3.6s ease-out, fill 0.8s ease 3s";
-          p.style.strokeDashoffset = 0;
-          setTimeout(() => p.style.fill = "#1a1a1a", 3000);
-        }, i * 170);
-      });
-
-      const delay = interiors.length * 170 + 1200;
-      krupa.forEach((p, i) => {
-        setTimeout(() => {
-          p.style.transition = "stroke-dashoffset 3.2s ease-out, fill 0.8s ease 3s";
-          p.style.strokeDashoffset = 0;
-          setTimeout(() => p.style.fill = "#1a1a1a", 3000);
-        }, delay + i * 280);
+      krupaPaths.forEach((path, i) => {
+        const delay = i * 0.08;
+        path.style.animation = `
+          draw 4.1s cubic-bezier(0.7, 0, 0.3, 1) ${delay}s forwards,
+          fillIn 0.7s ease ${4.1 + delay + 0.3}s forwards
+        `;
       });
     });
   }, []);
@@ -52,7 +48,7 @@ const Home = () => {
         <svg
           ref={svgRef}
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 600 900"
+          viewBox="150 150 200 600"
           className="logo-svg"
         >
 
@@ -120,24 +116,15 @@ const Home = () => {
 
           </g>
 
-          {/* Underline */}
-
+         {/* Underline */}
           <path
-
             strokeLinecap="butt"
-
             transform="matrix(0.749999, -0.00145064, 0.00145064, 0.749999, 277.905867, 486.237355)"
-
             fill="none"
-
             stroke="#1a1a1a"
-
             strokeWidth="2"
-
             d="M -0.00142598 1.001235 L 258.509476 1.001242"
-
           />
-
         </svg>
       </div>
     </section>
